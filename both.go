@@ -11,17 +11,7 @@ type handlers interface {
 	getAddress(string, int) (*net.UDPAddr, error)
 }
 
-// publicObject are boths sides of the message,
-// the sender (Client) and the receiver (Server)
-type publicObject struct {
-	handlers
-	Host       string
-	Port       int
-	BufferSize int
-	err        error
-}
-
-// getConnection gets the connection from which the UDP
+// getConnection creates the UDP connection for either side (Client or Server)
 func getConnection(address *net.UDPAddr, action string) (conn *net.UDPConn, err error) {
 	if action == "listen" {
 		conn, err = net.ListenUDP("udp", address)
