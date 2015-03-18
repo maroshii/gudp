@@ -1,3 +1,3 @@
-// Package udp is a simple udp Client and Server build on top
+// Package gudp is a simple udp Client and Server build on top
 // of "net". It's still very green...
-package udp
+package gudp
